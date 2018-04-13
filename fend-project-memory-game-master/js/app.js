@@ -17,12 +17,15 @@ let timer = document.getElementById("timer");
 let modalHeading = document.querySelector('#modal-heading');
 let modalMessage=''; 
 
-
-/* RESTART THE GAME */
+/* 
+* RESTART THE GAME 
+*/
 let restart = document.getElementById('restartClick'); 
 restart.addEventListener('click', newCards); 
 
-/* shuffle the list of cards with "shuffle" method */
+/* 
+* shuffle the list of cards with "shuffle" method
+*/
 let shuffledCards = shuffle(cards);
 newCards();
 
@@ -33,7 +36,7 @@ newCards();
 
 function shuffle(array) {
   var currentIndex = array.length,
-    temporaryValue, randomIndex;
+  temporaryValue, randomIndex;
 
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -63,7 +66,9 @@ function newCards(card) {
   }
 } 
 
-/* this function starts different function to show and match cards */
+/* 
+* this function starts different function to show and match cards 
+*/
 for (let shuffledCard of shuffledCards) {
 shuffledCard.addEventListener('click', clickedCards);
 }
@@ -86,20 +91,23 @@ function clickedCards (event){
       }
   }
 }
-
-/* display the card's symbol */
+/* 
+* display the card's symbol 
+*/
 function showCard (){
   event.target.classList.add('open', 'show');
 }
-
-/* add the card to a *list* of "open" cards */
+/* 
+* add the card to a *list* of "open" cards 
+*/
 function addToOpenCards () {  
   openedCards.push(event.target);
     if (openedCards.length < 3){
     }
 }
-
-/* check whether the two cards match or not */
+/* 
+*check whether the two cards match or not 
+*/
 function match(){
   event.target.classList.add('match');
   openedCards[0].classList.add('match');
@@ -108,19 +116,23 @@ function match(){
   openedCards = [];  
   console.log(openedCards);
  }
-             
+
 function notMatch (){
     openedCards[0].classList.remove('open', 'show');
     openedCards[1].classList.remove('open', 'show');
     openedCards = [];
 }
 
-/* delay opened cards so you can see them before they disappear if not match*/
+/* 
+* delay opened cards so you can see them before they disappear if not match
+*/
 function delayDisplay() {
   timeoutID = window.setTimeout(notMatch, 300);
 }
 
-/* increment the move counter and display it on the page */
+/*
+* increment the move counter and display it on the page 
+*/
 function addMoves(){
   moves++;
   console.log(moves);
@@ -133,7 +145,9 @@ function resetMovesCount(){
   changeMovesNumber.textContent =  moves; 
 }
 
-/* deduct stars */
+/* 
+* deduct stars 
+*/
 function starRating (){
   if (moves > 8 && moves < 20){
     starN = 3;
@@ -148,13 +162,17 @@ function starRating (){
   }
 }
 
-/* reset stars */
+/* 
+*reset stars 
+*/
 function resetStarRating (){ 
   document.getElementById('one').innerHTML ='<i class="fa fa-star"></i>';
   document.getElementById('two').innerHTML ='<i class="fa fa-star"></i>';
 }
 
-/* StopWatch, reference: https://codepen.io/AMSarmento/pen/YaaYrwh */
+/* 
+*StopWatch, reference: https://codepen.io/AMSarmento/pen/YaaYrwh
+*/
 function startTimer () {
   clearInterval(t);
   t = setInterval(buildTimer, 1000);
@@ -175,7 +193,9 @@ function buildTimer () {
   timer.textContent = (minutes < 10 ? "0" + minutes.toString(): minutes) + ":" + (seconds < 10 ? "0" + seconds.toString(): seconds);
 }
 
-/* Stop the timer once the last pair of cards match */
+/* 
+*Stop the timer once the last pair of cards match 
+*/
 function stopClock () {
   if (matchCount === 8){
     clearInterval(t);
@@ -194,7 +214,9 @@ function resetTimer () {
 }
 
 
-/* MODAL - display a message with the final score */
+/*
+* MODAL - display a message with the final score 
+*/
 
 /* When the user clicks on the last card the modal oopens */
 function gameEnd () {
@@ -205,14 +227,14 @@ function gameEnd () {
   modal.style.display = 'block';
 }
 
-//When the user clicks on the button, close it
+/* When the user clicks on the button, close it */
 button.onclick = function() {
     modal.style.display = 'none';
     newCards();
     resetTimer();
 };
 
-// When the user clicks anywhere outside of the modal, close it
+/* When the user clicks anywhere outside of the modal, close it */
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = 'none';
