@@ -99,6 +99,7 @@ function showCard (){
 function addToOpenCards () {  
   openedCards.push(event.target);
     if (openedCards.length < 3){
+      console.log(openedCards);
     }
 }
 /* 
