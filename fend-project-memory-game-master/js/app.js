@@ -33,7 +33,6 @@ newCards();
 *Setting up the cards for the game: 
 *Shuffle function from http://stackoverflow.com/a/2450976
 */
-
 function shuffle(array) {
   var currentIndex = array.length,
   temporaryValue, randomIndex;
@@ -54,7 +53,6 @@ function shuffle(array) {
 *loop through each card and create its HTML
 *add each card's HTML to the page
 */
-
 function newCards(card) {
   for (let i = 0; i < shuffledCards.length; i++) {
     shuffledCards[i].classList.remove('show', 'open', 'match');
@@ -72,12 +70,10 @@ function newCards(card) {
 for (let shuffledCard of shuffledCards) {
 shuffledCard.addEventListener('click', clickedCards);
 }
-// let startClock = 0;
+
 /* once the card is clicked the time and comparison initialise */
 function clickedCards (event){
   showCard();
-  // startClock++;
-  // startTimer();
   addToOpenCards(); 
   if (openedCards.length === 2){
     addMoves();       
