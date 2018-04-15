@@ -56,7 +56,7 @@ function shuffle(array) {
 function newCards(card) {
   for (let i = 0; i < shuffledCards.length; i++) {
     deck.appendChild(shuffledCards[i]); 
-    shuffledCards[i].classList.remove('show', 'open', 'match');
+    shuffledCards[i].classList.remove('show', 'open', 'match', 'trick');
     resetMovesCount();
     resetStarRating();
     timeTiger= 0;
