@@ -78,7 +78,22 @@ h1 {
     -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
     -webkit-transform: rotate(360deg); /* Safari */
 }
-
+/*
+*Leader Board
+*/
+#leader-board {
+  width: 40%;
+  min-height: 300px;
+  border: 1px, red, solid; 
+  margin: 5% 30%;
+  background: #b91111;
+  justify-content: center;
+  align-items: center;
+}
+.board-heading{
+    text-align: center;
+  padding: 10px;
+}
 /*
  * Styles for the Score Panel
  */
