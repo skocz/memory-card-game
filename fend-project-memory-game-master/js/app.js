@@ -8,7 +8,6 @@ let matchClass = deck.querySelectorAll('.card .match')
 let modal = document.getElementById('myModal');
 let button = document.getElementById('playAgain');
 let starN=0;
-let timeoutID='';
 let time = "00:00"
 let seconds = 0;
 let minutes = 0;
@@ -16,6 +15,7 @@ let t;
 let timer = document.getElementById("timer");
 let modalHeading = document.querySelector('#modal-heading');
 let modalMessage=''; 
+let timeTiger= 0;
 
 /* 
 * RESTART THE GAME 
@@ -55,12 +55,13 @@ function shuffle(array) {
 */
 function newCards(card) {
   for (let i = 0; i < shuffledCards.length; i++) {
+    deck.appendChild(shuffledCards[i]); 
     shuffledCards[i].classList.remove('show', 'open', 'match');
     resetMovesCount();
     resetStarRating();
+    timeTiger= 0;
     matchCount = 0;
     modalMessage.innerHTML = '';
-    deck.appendChild(shuffledCards[i]);  
   }
 } 
 
@@ -72,59 +73,63 @@ shuffledCard.addEventListener('click', clickedCards);
 }
 
 /* once the card is clicked the time and comparison initialise */
-function clickedCards (event){
+function clickedCards (){
   showCard();
-  addToOpenCards(); 
+  addToOpenCards();
+  timeTiger++
+  if(timeTiger === 1){
+    startTimer();
+  }
   if (openedCards.length === 2){
-    addMoves();       
+    addMoves(); 
     if (openedCards[0].innerHTML === openedCards[1].innerHTML){
       matchCount++;
       console.log(matchCount);
       stopClock();
       match(); 
     } else {
-        delayDisplay();
+        notMatch();
       }
-  }
-}
+  };
 /* 
 * display the card's symbol 
 */
-function showCard (){
-  event.target.classList.add('open', 'show');
-}
+  function showCard (){  
+    console.log(event.target.tagName);
+    const cardTagName = event.target 
+    if (cardTagName.tagName === 'LI'){
+       if (openedCards.length < 2){  
+    event.target.classList.add('open', 'show');
+      console.log(event.target);
+       }
+    }
+  };
 /* 
 * add the card to a *list* of "open" cards 
 */
-function addToOpenCards () {  
-  openedCards.push(event.target);
-    if (openedCards.length < 3){
-      console.log(openedCards);
-    }
-}
+  function addToOpenCards () { 
+    openedCards.push(event.target);
+  };
 /* 
 *check whether the two cards match or not 
 */
-function match(){
-  event.target.classList.add('match');
-  openedCards[0].classList.add('match');
-  event.target.classList.remove('show', 'open'); 
-  openedCards[0].classList.remove('show', 'open'); 
-  openedCards = [];  
-  console.log(openedCards);
- }
-
-function notMatch (){
-    openedCards[0].classList.remove('open', 'show');
-    openedCards[1].classList.remove('open', 'show');
-    openedCards = [];
-}
-
+  function match(){
+    openedCards[0].classList.add('match', 'trick');
+    event.target.classList.add('match', 'trick');
+    openedCards[0].classList.remove('show', 'open'); 
+    event.target.classList.remove('show', 'open'); 
+    openedCards = [];  
+   };
 /* 
 * delay opened cards so you can see them before they disappear if not match
-*/
-function delayDisplay() {
-  timeoutID = window.setTimeout(notMatch, 300);
+*/           
+  function notMatch (){
+      setTimeout(function(){ 
+        openedCards[0].classList.remove('open', 'show');
+        openedCards[1].classList.remove('open', 'show');
+        openedCards = [];
+      }, 500);
+  };
 }
 
 /*
@@ -227,9 +232,10 @@ function gameEnd () {
 /* When the user clicks on the button, close it */
 button.onclick = function() {
     modal.style.display = 'none';
+    scoreRepository();
     newCards();
-    resetTimer();
-};
+    resetTimer();   
+}
 
 /* When the user clicks anywhere outside of the modal, close it */
 window.onclick = function(event) {
@@ -239,3 +245,21 @@ window.onclick = function(event) {
     resetTimer();
   }
 };
+
+/*
+* Leaderboard, game state stored using local storage
+*/
+function scoreRepository() {   
+  localStorage.setItem('moves', moves);
+  localStorage.setItem('star_number', starN);
+  localStorage.setItem('timer', timer.textContent);
+   
+  const addResults = document.getElementById('leaderboard-result');
+  let resultTextToAdd = 'Your time '+ timer.textContent + ', '+ moves + ' Moves and ' + starN + ' Stars</ br></p>';
+    if (true){ 
+      addResults.insertAdjacentHTML('afterend', resultTextToAdd);    
+    } else {
+      addResults.innerHTML = "Sorry, your browser does not support web storage...";
+      }
+} 
+
