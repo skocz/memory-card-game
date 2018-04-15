@@ -75,8 +75,12 @@ h1 {
     background: #02ccba;
     font-size: 33px;
     pointer-events: none;
-    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
-    -webkit-transform: rotate(360deg); /* Safari */
+}
+.trick {
+   -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+/*     transition: width 2s, height 2s, transform 2s; */
+      -webkit-transform: rotate(360deg); /* Safari */
+/*     transform: rotate(360deg); */
 }
 /*
 *Leader Board
