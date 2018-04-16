@@ -5,6 +5,7 @@
 * [Instructions](#instructions)
 * [Local storage](#local-storage)
 * [Contributing](#contributing)
+* [Dependencies](#dependencies)
 
 
 ## Instructions
@@ -34,8 +35,3 @@ Read more about about it on: [WebStorage](https://www.w3schools.com/html/html5_w
 ## Dependencies
 - [Bootstrap Font Awesome](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
 - [Google Fonts](https://fonts.googleapis.com/css?family=Coda)
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
