@@ -31,6 +31,10 @@ In order to resart the game at any point, press the restart icon button on the r
 Player's scores are stored on browser's local storage and they are only visible on your current browser.
 Read more about about it on: [WebStorage](https://www.w3schools.com/html/html5_webstorage.asp). 
 
+## Dependencies
+- [Bootstrap Font Awesome](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
+- [Google Fonts](https://fonts.googleapis.com/css?family=Coda)
+
 ## Contributing
 
 This repository is the starter code for _all_ Udacity students. 
