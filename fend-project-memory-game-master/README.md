@@ -3,7 +3,7 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Local Storage](docs/Local-Storage.md)
+* [Local storage](#Local-Storage)
 * [Contributing](#contributing)
 
 
