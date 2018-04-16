@@ -4,7 +4,6 @@
 
 * [Instructions](#instructions)
 * [Local storage](#local-storage)
-* [Contributing](#contributing)
 * [Dependencies](#dependencies)
 
 
