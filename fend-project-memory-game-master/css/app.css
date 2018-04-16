@@ -156,6 +156,7 @@ h1 {
     padding: 5px;
     margin:0;
     color: red;
+    font-size: 26px;
 }
 .result-board {
     height: 200px;
@@ -163,7 +164,7 @@ h1 {
     margin: auto;
     padding: 10px;
     border: 1px solid #888;
-    width: 40%;
+    width: 40% !important;
     overflow: scroll;
 }
 /*
@@ -358,7 +359,7 @@ h1 {
     }
 }
 @media screen and (min-width: 701px) and (max-width: 1000px){
-    .result-board{
+    .result-board {
         width: 60%;
     }
 }
