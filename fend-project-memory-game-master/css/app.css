@@ -77,26 +77,10 @@ h1 {
     pointer-events: none;
 }
 .trick {
-   -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
-/*     transition: width 2s, height 2s, transform 2s; */
-      -webkit-transform: rotate(360deg); /* Safari */
-/*     transform: rotate(360deg); */
-}
-/*
-*Leader Board
-*/
-#leader-board {
-  width: 40%;
-  min-height: 300px;
-  border: 1px, red, solid; 
-  margin: 5% 30%;
-  background: #b91111;
-  justify-content: center;
-  align-items: center;
-}
-.board-heading{
-    text-align: center;
-  padding: 10px;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+    transition: width 2s, height 2s, transform 2s; 
+    -webkit-transform: rotate(360deg); /* Safari */
+    transform: rotate(360deg); */
 }
 /*
  * Styles for the Score Panel
@@ -123,9 +107,6 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
-}
-.restart {
-    font-size: 1em;
 }
 /* 
 * MODAL 
@@ -154,163 +135,206 @@ h1 {
     width: 80%;
     text-align: center;
 }
-#playAgain {
-    cursor: pointer;
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    margin: 4px;
+.play-again-button {
+  cursor: pointer;
+  font-size:1.5em;
+  padding: 5px;
+  margin: 10px; 
+}
+.play-again-button:hover{
+  color: green;
 }
 .modal-text{
-    font-size: 34px;
+    font-size: 24px;
+    line-height: 36px;
 }
 /*
+*Leader Board
+*/
+.board-heading {
+    text-align: center;
+    padding: 10px;
+    color: red;
+}
+.result-board {
+    height: 200px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 45%;
+    overflow: scroll;
+}
+/*
+ *
  * media queries
+ *
  */
 @media screen and (max-width: 359px){
-h1 {
-    font-size: 1.5em;
-}
-.fa {
-    font-size: 0.8em;
-}
-.modal-text {
-    font-size: 18px;
-    padding: 5px;
-    line-height: 28px;
-}
-.score-panel {
-    font-size: 1em;
-    width: 261px;
-}
-.deck {
-    width: 283px;
-    min-height: 401px;
-    padding: 20px;
-    margin: 0;
-}
-.deck .card {
-    height: 68px;
-    width: 56px;
-}
-.deck .card.show {
-    font-size: 22px;
-}
-.deck .card.match {
-    font-size: 22px;
-}
-.deck .card.notmatch {
-    font-size: 22px;
-}
-.score-panel .restart {
-    padding: 0 8px 0 8px;
-}
-#modal-heading { 
-    font-size: 1.5em;
-}
+    h1 {
+        font-size: 1.5em;
+    }
+    .fa {
+        font-size: 0.8em;
+    }
+    .modal-text {
+        font-size: 18px;
+        padding: 5px;
+        line-height: 28px;
+    }
+    .score-panel {
+        font-size: 1em;
+        width: 261px;
+    }
+    .deck {
+        width: 283px;
+        min-height: 401px;
+        padding: 20px;
+        margin: 0;
+    }
+    .deck .card {
+        height: 68px;
+        width: 56px;
+    }
+    .deck .card.show {
+        font-size: 22px;
+    }
+    .deck .card.match {
+        font-size: 22px;
+    }
+    .deck .card.notmatch {
+        font-size: 22px;
+    }
+    .score-panel .restart {
+        padding: 0 8px 0 8px;
+    }
+    #modal-heading { 
+        font-size: 1.5em;
+    }
 }
 @media screen and (min-width: 360px) and (max-width: 480px) {
-h1 {
-    font-size: 1.5em;
-}
-.fa {
-    font-size: 0.8em;
-}
-.modal-text {
-    font-size: 18px;
-    padding: 5px;
-    line-height: 28px;
-}
-.score-panel {
-    font-size: 1em;
-    width: 311px;
-}
-.deck {
-    width: 337px;
-    min-height: 415px;
-    padding: 20px;
-    margin: 0;
-}
-.deck .card {
-    height: 75px;
-    width: 68px;
-}
-.deck .card.show {
-    font-size: 22px;
-}
-.deck .card.match {
-    font-size: 22px;
-}
-.deck .card.notmatch {
-    font-size: 22px;
-}
-.score-panel .restart {
-    padding: 0 8px 0 8px;
-}
-#modal-heading { 
-    font-size: 1.5em;
-}
+    h1 {
+        font-size: 1.5em;
+    }
+    .fa {
+        font-size: 0.8em;
+    }
+    .modal-text {
+        font-size: 18px;
+        padding: 5px;
+        line-height: 28px;
+        margin:0;
+    }
+    .modal-content {
+        padding: 10px;
+      }
+    .score-panel {
+        font-size: 1em;
+        width: 311px;
+    }
+    .deck {
+        width: 337px;
+        min-height: 415px;
+        padding: 20px;
+        margin: 0;
+    }
+    .deck .card {
+        height: 75px;
+        width: 68px;
+    }
+    .deck .card.show {
+        font-size: 22px;
+    }
+    .deck .card.match {
+        font-size: 22px;
+    }
+    .deck .card.notmatch {
+        font-size: 22px;
+    }
+    .score-panel .restart {
+        padding: 0 8px 0 8px;
+    }
+    #modal-heading { 
+        font-size: 1.5em;
+        margin:0;
+        padding-top: 10px;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 640px){
-.fa {
-    font-size: 0.8em;
-}
-h1{
-    font-size: 28px;
-}
-.deck {
-    width: 438px;
-    min-height: 523px;
-    padding: 20px;
-    margin: 0;
-}
-.deck .card {
-    height: 90px;
-    width: 90px;
-}
-.deck .card.match {
-    font-size: 22px;
-}
-.deck .card.notmatch {
-    font-size: 22px;
-}
-.score-panel {
-    width: 420px;
-}
-.score-panel .restart {
-    padding: 0 12px 0 12px;
-}
+    .fa {
+        font-size: 0.8em;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .result-board {
+        width: 85%;
+      }
+    .modal-text {
+        font-size:18px;
+      }
+    .result-text {
+        font-size:16px;
+      }
+    .deck {
+        width: 438px;
+        min-height: 523px;
+        padding: 20px;
+        margin: 0;
+    }
+    .deck .card {
+        height: 90px;
+        width: 90px;
+    }
+    .deck .card.match {
+        font-size: 22px;
+    }
+    .deck .card.notmatch {
+        font-size: 22px;
+    }
+    .score-panel {
+        width: 420px;
+    }
+    .score-panel .restart {
+        padding: 0 12px 0 12px;
+    }
 }
 @media screen and (min-width: 641px) and (max-width: 700px){
-.fa {
-    font-size: 1em;
+    .fa {
+        font-size: 1em;
+    }
+    .restart {
+        font-size: 1em;
+    }
+     .result-board {
+        width: 65%;
+    }
+    .deck {
+        width: 559px;
+        min-height: 598px;
+        padding: 20px;
+        margin: 0;
+    }
+    .deck .card {
+        height: 120px;
+        width: 116px;
+    }
+    .deck .card.match {
+        font-size: 22px;
+    }
+    .deck .card.notmatch {
+        font-size: 22px;
+    }
+    .score-panel {
+        width: 528px;
+    }
+    .score-panel .restart {
+        padding: 0 12px 0 12px;
+    }
 }
-.restart {
-    font-size: 1em;
-}
-.deck {
-    width: 559px;
-    min-height: 598px;
-    padding: 20px;
-    margin: 0;
-}
-.deck .card {
-    height: 120px;
-    width: 116px;
-}
-.deck .card.match {
-    font-size: 22px;
-}
-.deck .card.notmatch {
-    font-size: 22px;
-}
-.score-panel {
-    width: 528px;
-}
-.score-panel .restart {
-    padding: 0 12px 0 12px;
-}
+@media screen and (min-width: 701px) and (max-width: 1000px){
+    .result-board{
+        width: 60%;
+    }
 }
