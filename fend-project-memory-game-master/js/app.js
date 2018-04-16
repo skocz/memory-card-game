@@ -151,7 +151,7 @@ function resetMovesCount(){
 * deduct stars 
 */
 function starRating (){
-  if (moves > 8 && moves < 20){
+  if (moves > 8 && moves < 21){
     starN = 3;
   }
   if (moves > 20 && moves < 30 ) {
