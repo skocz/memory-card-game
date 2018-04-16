@@ -24,7 +24,7 @@ The result consists of:
 
 In order to resart the game at any point, press the restart icon button on the right hand corner of the game board. 
 
-**Good Luck !!!**  :+1:
+**Good Luck !!!**  :four_leaf_clover:
 
 ## Local storage
 
