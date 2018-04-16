@@ -255,7 +255,7 @@ h1 {
     }
     .result-board {
         height: 184px;
-        weight: 94%;
+        width: 94%;
     }
     .deck {
         width: 337px;
