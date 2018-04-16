@@ -4,30 +4,30 @@ let deck = document.querySelector('.deck');
 let openedCards = [];
 let changeMovesNumber = document.getElementById('moves');
 let matchCount =0;
-let matchClass = deck.querySelectorAll('.card .match')
-let modal = document.getElementById('myModal');
-let button = document.getElementById('playAgain');
+const button = document.getElementById('playAgain');
 let starN=0;
 let time = "00:00"
 let seconds = 0;
 let minutes = 0;
-let t;
-let timer = document.getElementById("timer");
-let modalHeading = document.querySelector('#modal-heading');
-let modalMessage=''; 
 let timeTiger= 0;
+let t;
+const timer = document.getElementById("timer");
+const modal = document.getElementById('myModal');
+const modalHeading = document.querySelector('#modal-heading');
+let modalMessage='';
+
+/*
+*New set of cards when the browser reload
+*/
+window.onload = function() {
+ newGame();
+};
 
 /* 
 * RESTART THE GAME 
 */
 let restart = document.getElementById('restartClick'); 
-restart.addEventListener('click', newCards); 
-
-/* 
-* shuffle the list of cards with "shuffle" method
-*/
-let shuffledCards = shuffle(cards);
-newCards();
+restart.addEventListener('click', newGame); 
 
 /*
 *Setting up the cards for the game: 
@@ -48,29 +48,33 @@ function shuffle(array) {
   return array;
 }
 
-/*
-*display the cards on the page
-*loop through each card and create its HTML
-*add each card's HTML to the page
-*/
-function newCards(card) {
-  for (let i = 0; i < shuffledCards.length; i++) {
-    deck.appendChild(shuffledCards[i]); 
-    shuffledCards[i].classList.remove('show', 'open', 'match', 'trick');
-    resetMovesCount();
-    resetStarRating();
-    timeTiger= 0;
-    matchCount = 0;
-    modalMessage.innerHTML = '';
-  }
-} 
 
 /* 
-* this function starts different function to show and match cards 
+*shuffle the list of cards with "shuffle" method
+*loop through each card and create new set of cards
 */
-for (let shuffledCard of shuffledCards) {
-shuffledCard.addEventListener('click', clickedCards);
+function newCards(){
+  let shuffleCards = shuffle(cards);
+  for (let i = 0; i < shuffleCards.length; i++) {
+    shuffleCards[i].classList.remove('show', 'open', 'match', 'trick');
+    deck.appendChild(shuffleCards[i]);
+  }
+  for (let shuffleCard of shuffleCards) { 
+    shuffleCard.addEventListener('click', clickedCards);
+  }
 }
+
+/* reset the game when the restart button is clicked */
+function newGame() { 
+    resetMovesCount();
+    resetStarRating();
+    matchCount = 0;
+    timeTiger= 0;
+    resetTimer();
+    openedCards = [];
+    modalMessage.innerHTML = '';  
+    newCards();
+} 
 
 /* once the card is clicked the time and comparison initialise */
 function clickedCards (){
@@ -233,16 +237,14 @@ function gameEnd () {
 button.onclick = function() {
     modal.style.display = 'none';
     scoreRepository();
-    newCards();
-    resetTimer();   
+    newGame();   
 }
 
 /* When the user clicks anywhere outside of the modal, close it */
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = 'none';
-    newCards();
-    resetTimer();
+    newGame();
   }
 };
 
@@ -256,10 +258,5 @@ function scoreRepository() {
    
   const addResults = document.getElementById('leaderboard-result');
   let resultTextToAdd = 'Your time '+ timer.textContent + ', '+ moves + ' Moves and ' + starN + ' Stars</ br></p>';
-    if (true){ 
-      addResults.insertAdjacentHTML('afterend', resultTextToAdd);    
-    } else {
-      addResults.innerHTML = "Sorry, your browser does not support web storage...";
-      }
+  addResults.insertAdjacentHTML('afterend', resultTextToAdd);    
 } 
-
