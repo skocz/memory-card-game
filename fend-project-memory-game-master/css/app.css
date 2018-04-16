@@ -153,7 +153,8 @@ h1 {
 */
 .board-heading {
     text-align: center;
-    padding: 10px;
+    padding: 5px;
+    margin:0;
     color: red;
 }
 .result-board {
@@ -162,7 +163,7 @@ h1 {
     margin: auto;
     padding: 10px;
     border: 1px solid #888;
-    width: 45%;
+    width: 40%;
     overflow: scroll;
 }
 /*
@@ -233,13 +234,13 @@ h1 {
 }
 @media screen and (min-width: 360px) and (max-width: 480px) {
     h1 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .fa {
         font-size: 0.8em;
     }
     .modal-text {
-        font-size: 18px;
+        font-size: 15px;
         padding: 5px;
         line-height: 28px;
         margin:0;
@@ -250,6 +251,10 @@ h1 {
     .score-panel {
         font-size: 1em;
         width: 311px;
+    }
+    .result-board {
+        height: 184px;
+        weight: 94%;
     }
     .deck {
         width: 337px;
