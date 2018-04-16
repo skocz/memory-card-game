@@ -190,16 +190,20 @@ h1 {
         font-size: 1em;
         width: 261px;
     }
+    .score-panel .restart{
+        font-size: 1.2em;
+    }
     .result-text{
         font-size:13px;
     }
     .result-board{
         width:100%;
-        height:155px;
+        height:140px;
     }
     .play-again-button {
         font-size: 1.3em;
         margin: 7px;
+        border: 1px black solid;
     }
     .deck {
         width: 283px;
