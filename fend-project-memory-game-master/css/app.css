@@ -172,19 +172,25 @@ h1 {
  */
 @media screen and (max-width: 359px){
     h1 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .fa {
         font-size: 0.8em;
     }
     .modal-text {
-        font-size: 18px;
+        font-size: 13px;
         padding: 5px;
         line-height: 28px;
     }
     .score-panel {
         font-size: 1em;
         width: 261px;
+    }
+    .result-text{
+        font-size:13px;
+    }
+    .result-board{
+        width:100%;
     }
     .deck {
         width: 283px;
