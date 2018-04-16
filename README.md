@@ -18,7 +18,7 @@ This game is well known for improving the memory and concentration skills. A pla
 When Player wins, the result is added to the leaderboard which it is below the game. 
 
 The result consists of: 
-- starts 
+- stars 
 - moves
 - time
 
